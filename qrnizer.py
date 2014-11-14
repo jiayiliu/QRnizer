@@ -1,3 +1,4 @@
+#!/opt/local/bin/python
 from PIL import Image
 import qrcode
 
@@ -38,3 +39,21 @@ class QRnizer():
 
     def save(self, filename):
         self.qrimage.save(filename)
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Create a personalized QR code")
+    parser.add_argument('message', type=str, help="Message encoded in QR code")
+    parser.add_argument('save', type=str, help="Image path to save")
+    parser.add_argument('image', type=str, help="Image to be inserted", nargs='?', default='')
+    try:
+        args = parser.parse_args()
+    except:
+        parser.print_help()
+        exit()
+
+    qr = QRnizer(args.message)
+    if args.image:
+        qr.insert_image(args.image)
+    qr.save(args.save)
