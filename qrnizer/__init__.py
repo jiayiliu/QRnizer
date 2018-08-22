@@ -1,0 +1,1 @@
+from .QRnizer import QRnizer

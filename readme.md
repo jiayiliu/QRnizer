@@ -40,7 +40,4 @@ Simply copy the `qrnizer.py` into your `PYTHONPATH` directory.
     # save the result into a file
 	qr.save("new_file_name")
 
-# TODO
 
-1. Covert to package
-2. Provide auto scale calculation
